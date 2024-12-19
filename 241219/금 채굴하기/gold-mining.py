@@ -12,14 +12,14 @@ def solve():
     n, m = map(int, input().split())
     grid = [list(map(int, input().split())) for _ in range(n)]
     max_gold = 0
-    k = 1
+    k = 0
     while True:
         for i in range(n):
             for j in range(n):
                 # 모든 (i, j)에 대해, (i, j) 중심으로 k번 이동해서 검사
                 gold_cnt = 0
                 visited = [[False] * n for _ in range(n)]
-                directions = [(-1, 0), (1, 0), (0, 1), (0, -1)]
+                directions = [(-1, 0), (1, 0), (0, 1), (0, -1), (-1, 1), (-1, -1), (1, -1), (1, 1)]
                 q = Queue()
                 q.put((i, j, 0))
                 visited[i][j] = True
@@ -41,14 +41,14 @@ def solve():
                             visited[nx][ny] = True
                             if grid[nx][ny] == 1:
                                 gold_cnt += 1
-                
+
                 if k * k + (k + 1) * (k + 1) <= m * gold_cnt:
                     max_gold = max(max_gold, gold_cnt)
 
         if k >= n:
             break
         else:
-            k += 1 
+            k += 1
     return max_gold
 
 print(solve())
