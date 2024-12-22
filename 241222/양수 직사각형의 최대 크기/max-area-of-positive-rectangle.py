@@ -2,7 +2,7 @@ import sys
 
 n, m = map(int, sys.stdin.readline().split())
 grid = [list(map(int, sys.stdin.readline().split())) for i in range(n)]
-max_size = 0
+max_size = -1
 
 def check_positive(cord1: tuple, cord2: tuple) -> bool:
     # 왼쪽 위 좌표 ~ 오른쪽 아래 좌표 안에 있는 영역에 음수가 있는지 확인
