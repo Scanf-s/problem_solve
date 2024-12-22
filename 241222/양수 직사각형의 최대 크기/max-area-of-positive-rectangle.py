@@ -10,7 +10,7 @@ def check_positive(cord1: tuple, cord2: tuple) -> bool:
     k, l = cord2
     for x in range(i, k + 1):
         for y in range(j, l + 1):
-            if grid[x][y] < 0:
+            if grid[x][y] <= 0:
                 return False
     return True
 
@@ -32,7 +32,5 @@ for i in range(n):
                 # 왼쪽 위 좌표 ~ 오른쪽 아래 좌표 안에 있는 영역에 음수가 있는지 확인
                 if check_positive(left, right):
                     max_size = max(get_size(left, right), max_size)
-                else:
-                    continue
 
 print(max_size)
