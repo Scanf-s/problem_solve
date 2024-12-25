@@ -40,13 +40,13 @@ def shift(row:int, direction: str):
 def main():
     for row, direction in wind:
         # direction 대로 row번째 행 밀기
-        shift(int(row), direction)
+        shift(int(row) - 1, direction)
 
         # cur_row 기준으로 위쪽 전파
-        propagate_up(cur_row=int(row), direction=direction)
+        propagate_up(cur_row=int(row) - 1, direction=direction)
 
         # cur_row 기준으로 아래쪽 전파
-        propagate_down(cur_row=int(row), direction=direction)
+        propagate_down(cur_row=int(row) - 1, direction=direction)
 
     for row in arr:
         print(*row)
